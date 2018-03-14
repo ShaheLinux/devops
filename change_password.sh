@@ -1,1 +1,1 @@
-passwd devops
+echo "student" | passwd --stdin devops

@@ -1,0 +1,20 @@
+- name: Test vars
+  hosts: all
+  become: true
+  tasks:
+  - name: Install Packages
+    yum: 
+      name: 
+       - httpd
+       - vsftpd
+       - dialog
+       - samba-common       
+      state: installed
+
+  - name: Start Service
+    service: 
+      name: "{{ item }}"
+      state: running
+    with_items:
+    - httpd
+    - vsftpd
